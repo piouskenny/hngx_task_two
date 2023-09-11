@@ -81,6 +81,10 @@ class PersonController extends Controller
      */
     public function destroy(string $id)
     {
-        $person = Person::destroy($id);
+        $person_delete = Person::destroy($id);
+
+        if($person_delete) {
+            return response()->json(['message' => "Person with id $id was deleted successfuly", 'status' => 200]);
+        }   
     }
 }
