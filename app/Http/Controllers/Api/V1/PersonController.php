@@ -30,9 +30,7 @@ class PersonController extends Controller
         $request->validated();
 
         $person = Person::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'address' => $request->address
+            'name' => $request->name
         ]);
 
         if ($person) {
@@ -59,16 +57,12 @@ class PersonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PersonStoreRequest $request, string $id)
     {
         $person = Person::find($id);
 
-        $request->validate([
-            'name' => 'regex:/^[a-zA-Z0-9\s]+$/',
-            'email' => 'email',
-            'address' => 'regex:/^[a-zA-Z0-9\s]+$/|nullable',
-        ]);
-
+        $request->validated();
+        
         $update = $person->update($request->all());
         if ($update) {
             return response()->json(['message' => 'Details has been updated successfully', 'status' => 200]);
