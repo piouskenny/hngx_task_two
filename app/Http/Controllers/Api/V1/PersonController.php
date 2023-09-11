@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PersonStoreRequest;
 use App\Models\Person;
 use App\Http\Resources\Api\V1\PersonResource;
+use App\Http\Resources\Api\V1\PersonCollection;
 
 
 class PersonController extends Controller
@@ -18,7 +19,7 @@ class PersonController extends Controller
         if (count($person) < 1) {
             return response()->json("No Persons has been added to the database yet");
         }
-        return response()->json($person);
+        return new PersonCollection($person);
     }
 
     /**
@@ -50,11 +51,9 @@ class PersonController extends Controller
      */
     public function show(string $id)
     {
-        // return response()->json("Working");
         $person = Person::find($id);
 
         return new PersonResource($person);
-        // return response()->json($person);
     }
 
     /**
