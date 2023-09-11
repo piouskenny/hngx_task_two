@@ -24,7 +24,7 @@ class PersonStoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|email',
-            'address' => 'string',
+            'address' => 'string|nullable',
         ];
     }
 }
