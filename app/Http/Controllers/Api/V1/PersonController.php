@@ -14,7 +14,7 @@ class PersonController extends Controller
 {
     public function index()
     {
-        $person = Person::all();
+        $person = Person::paginate(15);
 
         if (count($person) < 1) {
             return response()->json("No Persons has been added to the database yet");
