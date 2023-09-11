@@ -23,8 +23,6 @@ class PersonStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
-            'email' => 'required|email|unique:email',
-            'address' => 'regex:/^[a-zA-Z0-9\s]+$/|nullable',
         ];
     }
 }
