@@ -43,7 +43,7 @@ class PersonController extends Controller
 
             return response()->json($message);
         }
-        return response()->json("Failed to create Person");
+        return response()->json(['message' => 'sorry cannot add person at the moment', 'status' => 200]);
     }
 
     /**
@@ -62,11 +62,18 @@ class PersonController extends Controller
     public function update(Request $request, string $id)
     {
         $person = Person::find($id);
-        $person->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'address' => $request->address
+
+        $request->validate([
+            'name' => 'regex:/^[a-zA-Z0-9\s]+$/',
+            'email' => 'email',
+            'address' => 'regex:/^[a-zA-Z0-9\s]+$/|nullable',
         ]);
+
+        $update = $person->update($request->all());
+        if ($update) {
+            return response()->json(['message' => 'Details has been updated successfully', 'status' => 200]);
+        }
+        return response()->json(['message' => 'Details was not updated', 'status' => 200]);
     }
 
     /**
