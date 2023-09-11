@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PersonStoreRequest;
 use App\Models\Person;
+use App\Http\Resources\Api\V1\PersonResource;
+
 
 class PersonController extends Controller
 {
@@ -51,7 +53,8 @@ class PersonController extends Controller
         // return response()->json("Working");
         $person = Person::find($id);
 
-        return response()->json($person);
+        return new PersonResource($person);
+        // return response()->json($person);
     }
 
     /**
