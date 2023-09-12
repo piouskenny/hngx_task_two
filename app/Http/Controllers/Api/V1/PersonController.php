@@ -17,7 +17,7 @@ class PersonController extends Controller
     public function checkDatabaseConnection()
     {
         try {
-            DB::table('your_table_name')->get();
+            DB::table('hngx_task_two')->get();
             return "Database connection successful!";
         } catch (\Exception $e) {
             return "Database connection failed: " . $e->getMessage();
