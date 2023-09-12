@@ -17,7 +17,11 @@ class PersonController extends Controller
         $person = Person::paginate(15);
 
         if (count($person) < 1) {
-            return response()->json("No Persons has been added to the database yet");
+            $message = [
+                'response_message' => "Collection of All Persons",
+                'status' => 200
+            ];
+            return response()->json($message);
         }
         return new PersonCollection($person);
     }
@@ -36,7 +40,7 @@ class PersonController extends Controller
         if ($person) {
             $message = [
                 'response_message' => "Person Created successfuly",
-                'status' => 200
+                'status' => 201
             ];
 
             return response()->json($message);
