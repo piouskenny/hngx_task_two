@@ -33,7 +33,9 @@ class PersonController extends Controller
      */
     public function create(PersonStoreRequest $request)
     {
+
         $request->validated();
+    
 
         $person = Person::create([
             'name' => $request->name
