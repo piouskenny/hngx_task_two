@@ -18,10 +18,10 @@ Welcome to the CRUD API documentation Laravel application. This API allows you t
 
 Before you start, make sure you have the following prerequisites installed on your system:
 
-- PHP (>= 7.4)
+- PHP (>= 8.0)
 - Composer
 - Laravel (>= 8.x)
-- Database (e.g., MySQL, PostgreSQL)
+- Database ( MySQL or PostgreSQL)
 
 ### Installation
 
