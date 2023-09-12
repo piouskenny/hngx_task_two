@@ -22,7 +22,7 @@ class PersonStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
+            'name' => 'unique:name|required|regex:/^[a-zA-Z0-9\s]+$/',
         ];
     }
 }
