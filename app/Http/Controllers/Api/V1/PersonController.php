@@ -8,10 +8,28 @@ use App\Http\Requests\PersonStoreRequest;
 use App\Models\Person;
 use App\Http\Resources\Api\V1\PersonResource;
 use App\Http\Resources\Api\V1\PersonCollection;
+use Illuminate\Support\Facades\DB;
+
 
 
 class PersonController extends Controller
 {
+    public function checkDatabaseConnection()
+    {
+        try {
+            DB::table('your_table_name')->get();
+            return "Database connection successful!";
+        } catch (\Exception $e) {
+            return "Database connection failed: " . $e->getMessage();
+        }
+    }
+
+    public function showDatabaseConnectionStatus()
+    {
+        $message = $this->checkDatabaseConnection();
+
+        return view('database_status', ['message' => $message]);
+    }
     public function index()
     {
         $person = Person::paginate(15);
@@ -66,7 +84,7 @@ class PersonController extends Controller
         $person = Person::find($id);
 
         $request->validated();
-        
+
         $update = $person->update($request->all());
         if ($update) {
             return response()->json(['message' => 'Details has been updated successfully', 'status' => 200]);
@@ -81,8 +99,8 @@ class PersonController extends Controller
     {
         $person_delete = Person::destroy($id);
 
-        if($person_delete) {
+        if ($person_delete) {
             return response()->json(['message' => "Person with id $id was deleted successfuly", 'status' => 200]);
-        }   
+        }
     }
 }
