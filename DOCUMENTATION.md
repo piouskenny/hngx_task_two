@@ -105,26 +105,26 @@ The API uses JSON for both requests and responses. The following table describes
 
 ## Displaying all Persons (200 OK)
 
-<img src="screenshots/all.png" alt="creating a new person" /> 
+<img src="public/screenshots/all.png" alt="creating a new person" /> 
 
 
 ## Adding a new person (201 Created)
 
-<img src="screenshots/create.png" alt="creating a new person" /> 
+<img src="public/screenshots/create.png" alt="creating a new person" /> 
 
 
 ## Fetch the details of a person (200 OK)
 
-<img src="screenshots/find.png" alt="finding a  person" /> 
+<img src="public/screenshots/find.png" alt="finding a  person" /> 
 
 ## Update the details of an existing person (200 OK)
 
-<img src="screenshots/update.png" alt="updating a  person" /> 
+<img src="public/screenshots/update.png" alt="updating a  person" /> 
 
 
 ## Remove a person (200 Ok)
 
-<img src="screenshots/delete.png" alt="updating a  person" /> 
+<img src="public/screenshots/delete.png" alt="updating a  person" /> 
 
 ### License
 
