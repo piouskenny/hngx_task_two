@@ -25,7 +25,7 @@ class PersonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PersonStoreRequest $request)
+    public function create(PersonStoreRequest $request)
     {
         $request->validated();
 
@@ -47,7 +47,7 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function find(string $id)
     {
         $person = Person::find($id);
 

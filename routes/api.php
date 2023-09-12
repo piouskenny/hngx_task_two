@@ -16,9 +16,9 @@ use App\Http\Controllers\Api\V1\PersonController;
 
 Route::get('/', [PersonController::class, 'index']);
 
-Route::post('/', [PersonController::class, 'store']);
+Route::post('/', [PersonController::class, 'create']);
 
-Route::get('/{user_id}', [PersonController::class, 'show' ]);
+Route::get('/{user_id}', [PersonController::class, 'find' ]);
 
 Route::put('/{user_id}', [PersonController::class, 'update']);
 
