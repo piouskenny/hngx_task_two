@@ -8,28 +8,12 @@ use App\Http\Requests\PersonStoreRequest;
 use App\Models\Person;
 use App\Http\Resources\Api\V1\PersonResource;
 use App\Http\Resources\Api\V1\PersonCollection;
-use Illuminate\Support\Facades\DB;
 
 
 
 class PersonController extends Controller
 {
-    public function checkDatabaseConnection()
-    {
-        try {
-            DB::table('hngx_task_two')->get();
-            return "Database connection successful!";
-        } catch (\Exception $e) {
-            return "Database connection failed: " . $e->getMessage();
-        }
-    }
 
-    public function showDatabaseConnectionStatus()
-    {
-        $message = $this->checkDatabaseConnection();
-
-        return view('database_status', ['message' => $message]);
-    }
     public function index()
     {
         $person = Person::paginate(15);

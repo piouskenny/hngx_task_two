@@ -16,8 +16,6 @@ use App\Http\Controllers\Api\V1\PersonController;
 
 Route::get('/', [PersonController::class, 'index']);
 
-Route::get('/showDatabaseConnectionStatus', [PersonController::class, 'showDatabaseConnectionStatus']);
-
 Route::post('/', [PersonController::class, 'create']);
 
 Route::get('/{user_id}', [PersonController::class, 'find' ]);
